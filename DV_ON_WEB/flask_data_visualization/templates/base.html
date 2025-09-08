@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{{ title or "Flask Charts" }}</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 24px; }
+    .menu { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+    .menu a {
+      text-decoration: none; padding: 8px 12px; border: 1px solid #ddd;
+      border-radius: 6px; background: #f7f7f7; color: #333;
+    }
+    .menu a:hover { background: #eaeaea; }
+    .container { max-width: 900px; margin: 0 auto; }
+    img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+    h1, h2 { margin: 8px 0 16px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="menu">
+      {% if menu %}
+        {% for item in menu %}
+          <a href="{{ item.endpoint }}">{{ item.name }}</a>
+        {% endfor %}
+      {% endif %}
+      <a href="{{ url_for('home') }}">Home</a>
+    </nav>
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>

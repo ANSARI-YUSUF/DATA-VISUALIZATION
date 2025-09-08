@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>{{ chart_title }}</h2>
+  <img src="data:image/png;base64,{{ img_b64 }}" alt="{{ chart_title }}">
+{% endblock %}
